@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tilda: Go to Storage</title>
+</head>
+<style>
+    body {
+        font-family: Arial, SansSerif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .download {
+        height: 100vh;
+        position: relative
+    }
+
+    .download p {
+        margin: 0;
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+        white-space: normal;
+        font-size: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .download p a {
+        display: block;
+        text-decoration: none;
+        color: #ff8562;
+        max-width: 450px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .notation {
+        font-size: small;
+    }
+
+</style>
+<body>
+<div class="download">
+    <p>
+        Link to the file storage service:
+<br>
+<a href="https://yadi.sk/d/7JZd94sXlwGbrg">Товарный чек_tilda909777.pdf</a>
+
+<span class="notation">You will be redirected to your file storage service in <span id="down_timeout">5</span> seconds</span>
+
+<script type="application/javascript">
+    var count = document.getElementById('down_timeout').textContent;
+    console.log(count);
+    var interval = setInterval(function () {
+        count--;
+        if (count == 0) {
+            document.getElementsByTagName('a')[0].click();
+            clearInterval(interval);
+        }
+        document.getElementById('down_timeout').textContent = count;
+    }, 1000)
+</script>
+    </p>
+</div>
+</body>
+</html>
